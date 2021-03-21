@@ -1,0 +1,28 @@
+{
+  "name": "@l4logger/nodejs",
+  "version": "1.0.0",
+  "description": "Official L4Logger Log monitoring & exception reporter for NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "authors": [
+    {
+      "name": "Abdul Qadir",
+      "email": "abdulqadirshaikh101@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:l4logger/nodejs.git"
+  },
+  "keywords": [
+    "error",
+    "l4logger",
+    "exception"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}

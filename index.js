@@ -1,4 +1,5 @@
 "use strict";
+const axios = require('axios');
 
 global.l4logger = {
   key: null,
@@ -6,7 +7,7 @@ global.l4logger = {
   init(key, env = "") {
     this.key = key;
     this.env = env;
-    // console.log("key", this.key, key);
+    // console.log("key", this.key);
   },
   log(logType, message, data = {}) {
     data = {
@@ -16,7 +17,7 @@ global.l4logger = {
       message: message,
       // context  : new Error().stack,
       context: {},
-      url: location.href,
+      url: '',
       extra: data,
       created_at: Math.floor(Date.now() / 1000),
     };
@@ -28,20 +29,16 @@ global.l4logger = {
     // .doc("project.id").collection("logs").add(data);
   },
   apiCall(data) {
-    data = JSON.stringify(data);
-
     const baseURL = "https://us-central1-l4logger.cloudfunctions.net/l4logger";
     // baseURL = "http://localhost:3000";
-    fetch(baseURL + "/add", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: data,
-    })
-    // .then((res) => res.json())
-        .then((res) => {
 
-        });
+    axios.post(baseURL + "/add", data)
+      .then(function(response) {
+        // console.log(response.data);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
   },
 };
